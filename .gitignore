@@ -1,0 +1,43 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*$py.class
+*.so
+
+# === Virtual Environments ===
+*.venv/
+*.env
+*.env.*
+
+# === Django/FastAPI Specific ===
+*.sqlite3
+*.log
+/media/
+/staticfiles/
+local_settings.py
+
+# === Node.js (React, etc.) ===
+*/node_modules/
+*/build/
+*/dist/
+*.tsbuildinfo
+
+# === Coverage/Test Artifacts ===
+htmlcov/
+.coverage
+.tox/
+.nox/
+.cache/
+pytest_cache/
+
+# === IDE/Editor Settings ===
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# === OS Specific ===
+.DS_Store
+Thumbs.db

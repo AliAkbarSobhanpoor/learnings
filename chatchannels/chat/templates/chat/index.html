@@ -1,0 +1,29 @@
+<!-- chat/templates/chat/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Chat Rooms</title>
+</head>
+<body>
+    <label for="#room-name-input">pls enter the room that you want</label>
+	<input id="room-name-input" type="text" size="100"><br>
+	<input id="room-name-submit" type="button" value="Enter">
+
+	<script>
+		// I think this is the click function for enter
+		document.querySelector("#room-name-input").focus();
+		document.querySelector("#room-name-input").onkeyup = function (e) {
+			if (e.key === "Enter") {
+				document.querySelector("#room-name-submit").click();
+			}
+			
+		}
+        // redirect the user to the chat location
+		document.querySelector("#room-name-submit").onclick = function (e) {
+            let roomName = document.querySelector("#room-name-input").value;
+            window.location.pathname = `/chat/${roomName}/`
+        };
+	</script>
+</body>
+</html>

@@ -8,17 +8,17 @@ def chat_view(request: HttpRequest) -> HttpResponse:
     room = get_object_or_404(ChatRoom, room_name="first")
     room_messages = RoomMessage.objects.filter(room__room_name="first").order_by('create_time')[:30 ]
     form: ChatMessageCreateForm = ChatMessageCreateForm()
-    if request.method == 'POST':
+    if request.htmx:
         form : ChatMessageCreateForm = ChatMessageCreateForm(request.POST)
         if form.is_valid:
             message:RoomMessage = form.save(commit=False)
             message.author = request.user
             message.room = room
             message.save()
-            return redirect("chat_index")
-
-
-
+            return render(request, "rt_chat/partials/chat_message.html", context={
+                "message": message,
+                "user": request.user
+            })
     return render(request, 'rt_chat/chat.html', {
         "room_messages": room_messages, "form": form
     })

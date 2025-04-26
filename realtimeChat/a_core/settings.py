@@ -33,6 +33,7 @@ CSRF_TRUSTED_ORIGINS = [ 'https://*' ]
 # Application definition
 
 INSTALLED_APPS = [
+    "daphne",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -153,3 +154,12 @@ ACCOUNT_EMAIL_REQUIRED = True
 # auth user model
 
 AUTH_USER_MODEL = "a_users.User"
+
+# daphne server
+
+ASGI_APPLICATION = 'a_core.asgi.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+    }
+}

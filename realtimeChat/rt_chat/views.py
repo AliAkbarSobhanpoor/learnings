@@ -6,7 +6,7 @@ from .forms import ChatMessageCreateForm
 @login_required
 def chat_view(request: HttpRequest) -> HttpResponse:
     room = get_object_or_404(ChatRoom, room_name="first")
-    room_messages = RoomMessage.objects.filter(room__room_name="first").order_by('create_time')[:30 ]
+    room_messages = RoomMessage.objects.filter(room__room_name="first")[:30]
     form: ChatMessageCreateForm = ChatMessageCreateForm()
     if request.htmx:
         form : ChatMessageCreateForm = ChatMessageCreateForm(request.POST)

@@ -158,8 +158,20 @@ AUTH_USER_MODEL = "a_users.User"
 # daphne server
 
 ASGI_APPLICATION = 'a_core.asgi.application'
+
+# this config is good for production.
+# CHANNEL_LAYERS = {
+#     'default': {
+#         'BACKEND': 'channels.layers.InMemoryChannelLayer',
+#     }
+# }
+
+# this config can be good for production. and also deployment.
 CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels.layers.InMemoryChannelLayer',
-    }
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6380)],
+        },
+    },
 }

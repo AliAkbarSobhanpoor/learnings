@@ -7,9 +7,14 @@ User = get_user_model()
 
 class ChatRoom(models.Model):
     """
+        : id : is the unique identifier of the rooms this show the room name. and other things. name is show case. todo: implement this
+        : type: rooms has 4 type: todo:implement this
+            1. rooms are public.
+            2. channels are public. only owners can send message.
+            3. groups are private . everyone can send data.
+            4. private this pryvate.
         the room for messages : can create in two ways:
             1. based on the room name
-            2. based on the users (PV) : todo: implement this
         model include this fields:
             : room_name : the main room name . fill for private and protected rooms.
             : online_users : show the online users of the room

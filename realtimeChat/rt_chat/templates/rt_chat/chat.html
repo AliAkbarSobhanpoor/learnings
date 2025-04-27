@@ -37,9 +37,10 @@
             </div>
             <div class="sticky bottom-0 z-10 p-2 bg-gray-800">
                 <div class="flex items-center rounded-xl px-2 py-2">
+                    {# todo: implement for all types. #}
                     <form id="chat_message_form" class="w-full"
                           hx-ext="ws"
-                          ws-connect="/ws/chatroom/first/"
+                          ws-connect="/ws/chat/room/{{ room.room_name }}/"
                           ws-send
                           _="on htmx:wsAfterSend reset() me"
                     >

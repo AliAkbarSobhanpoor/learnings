@@ -11,5 +11,5 @@ from . import views
         4. private this pryvate.
 """
 urlpatterns = [
-    path("room/<str:room_name>/", views.chat_view, name="chat_index"),
+    path("room/<str:room_name>/", views.chat_room_view, name="chat_index"),
 ]
